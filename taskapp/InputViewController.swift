@@ -38,7 +38,7 @@ class InputViewController: UIViewController {
        override func viewWillDisappear(_ animated: Bool) {
            try! realm.write {
                self.task.title = self.titleTextField.text!
-            self.task.title = self.kategoryTextField.text!              //
+            self.task.kategory = self.kategoryTextField.text!              //
                self.task.contents = self.cotentsTextView.text
                self.task.date = self.datePicker.date
                self.realm.add(self.task, update: .modified)
