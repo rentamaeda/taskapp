@@ -3,7 +3,7 @@ import UIKit
 import RealmSwift   // ←追加
 import UserNotifications    // 追加
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate{
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var SearchBar: UISearchBar!
     
@@ -20,6 +20,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        //サーチの設定
+        SearchBar.delegate = self
+        //プレースホルダの指定
+        SearchBar.placeholder = "カテゴリを入力してください"
+       
     }
     // データの数（＝セルの数）を返すメソッド
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,5 +110,45 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
          super.viewWillAppear(animated)
          tableView.reloadData()
      }
+    
+    
+     //MARK: - 渡された文字列を含む要素を検索し、テーブルビューを再表示する
+       func searchItems(searchText: String) {
+           //要素を検索する
+           if searchText != "" {
+               taskArray =  kategory.filter { item in
+                   return  count.contains(searchText)
+               }
+           } else {
+               //渡された文字列が空の場合は全てを表示
+           taskArray =
+
+            //tableViewを再読み込みする
+            tableView.reloadData()
+        }
+        }
+    // MARK: - Search Bar Delegate Methods
+    // テキストが変更される毎に呼ばれる
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //検索する
+        searchItems(searchText: searchText)
+    }
+
+    // キャンセルボタンが押されると呼ばれる
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        view.endEditing(true)
+        content.title = task.kategory
+        //tableViewを再読み込みする
+        tableView.reloadData()
+        
+        }
+
+    // Searchボタンが押されると呼ばれる
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        //検索する
+        searchItems(searchText: searchBar.text! as String)
+    }
 }
 
