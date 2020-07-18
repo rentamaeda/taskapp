@@ -6,7 +6,8 @@ class Task: Object {
 
     // タイトル
     @objc dynamic var title = ""
-
+    // カテゴリー
+    @objc dynamic var kategory = ""
     // 内容
     @objc dynamic var contents = ""
 

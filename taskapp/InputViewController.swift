@@ -25,6 +25,7 @@ class InputViewController: UIViewController {
                self.view.addGestureRecognizer(tapGesture)
 
                titleTextField.text = task.title
+        kategoryTextField.text = task.title                             //
                cotentsTextView.text = task.contents
                datePicker.date = task.date
         
@@ -37,6 +38,7 @@ class InputViewController: UIViewController {
        override func viewWillDisappear(_ animated: Bool) {
            try! realm.write {
                self.task.title = self.titleTextField.text!
+            self.task.title = self.kategoryTextField.text!              //
                self.task.contents = self.cotentsTextView.text
                self.task.date = self.datePicker.date
                self.realm.add(self.task, update: .modified)
@@ -54,6 +56,13 @@ class InputViewController: UIViewController {
         } else {
             content.title = task.title
         }
+//
+       if task.kategory == "" {
+               content.title = "(タイトルなし)"
+           } else {
+               content.title = task.kategory
+           }
+//
         if task.contents == "" {
             content.body = "(内容なし)"
         } else {

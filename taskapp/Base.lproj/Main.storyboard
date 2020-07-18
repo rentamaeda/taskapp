@@ -75,7 +75,7 @@
                     <connections>
                         <outlet property="SearchBar" destination="Urm-AL-xWd" id="DE8-r6-quF"/>
                         <outlet property="tableView" destination="8va-eN-dum" id="6lz-ee-WO3"/>
-                        <segue destination="D8a-x0-68u" kind="show" identifier="CellSegue" id="DHN-Vo-8Gj"/>
+                        <segue destination="D8a-x0-68u" kind="show" identifier="cellSegue" id="DHN-Vo-8Gj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
