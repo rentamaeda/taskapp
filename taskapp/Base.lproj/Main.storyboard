@@ -73,6 +73,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="SearchBar" destination="Urm-AL-xWd" id="DE8-r6-quF"/>
                         <outlet property="tableView" destination="8va-eN-dum" id="6lz-ee-WO3"/>
                         <segue destination="D8a-x0-68u" kind="show" identifier="CellSegue" id="DHN-Vo-8Gj"/>
                     </connections>
@@ -160,6 +161,12 @@
                         <viewLayoutGuide key="safeArea" id="Wve-jg-kp5"/>
                     </view>
                     <navigationItem key="navigationItem" id="3ZB-lB-fin"/>
+                    <connections>
+                        <outlet property="cotentsTextView" destination="ql9-VD-KKM" id="HCo-hp-e5M"/>
+                        <outlet property="datePicker" destination="bXu-Ro-Syc" id="rJs-oi-9EG"/>
+                        <outlet property="kategoryTextField" destination="OUS-Hz-vLn" id="y6O-CX-Yjg"/>
+                        <outlet property="titleTextField" destination="NqB-hB-TLA" id="nMb-vq-ZU6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o39-IC-AkU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
