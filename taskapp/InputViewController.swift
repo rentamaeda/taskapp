@@ -25,7 +25,7 @@ class InputViewController: UIViewController {
                self.view.addGestureRecognizer(tapGesture)
 
                titleTextField.text = task.title
-        kategoryTextField.text = task.title                             //
+        kategoryTextField.text = task.kategory                             //
                cotentsTextView.text = task.contents
                datePicker.date = task.date
         

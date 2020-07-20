@@ -25,6 +25,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         SearchBar.delegate = self
         //プレースホルダの指定
         SearchBar.placeholder = "カテゴリを入力してください"
+        
+        SearchBar.showsCancelButton = false
        
     }
     // データの数（＝セルの数）を返すメソッド
@@ -38,7 +40,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Cellに値を設定する.  --- ここから ---
         let task = taskArray[indexPath.row]
         cell.textLabel?.text = task.title
-        cell.textLabel?.text = task.kategory        //
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
 
@@ -46,9 +47,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.detailTextLabel?.text = dateString
         // --- ここまで追加 ---
 
-        
-        
-        
         return cell
     }
 
@@ -114,9 +112,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
          tableView.reloadData()
      }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        _ = realm.objects(Task.self).filter("searchBar.text != ''")
-        taskArray.count 
+   /* func searchBarCancelButtonClicked(_ searchBar: UISearchBar ) {
+        taskArray = realm.objects(Task.self).filter("kategory == %@", searchBar.text!)
+        // 再利用可能な cell を得る
+      
+        // --- ここまで追加 ---
+        tableView.reloadData()
+    }
+     */
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        taskArray = realm.objects(Task.self).filter("kategory == %@", searchBar.text!)
+               // 再利用可能な cell を得る
+             
+               // --- ここまで追加 ---
+               tableView.reloadData()
     }
     
 }
