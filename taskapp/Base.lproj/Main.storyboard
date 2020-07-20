@@ -162,9 +162,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="3ZB-lB-fin"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="OUS-Hz-vLn" id="yZy-CP-Zcb"/>
                         <outlet property="cotentsTextView" destination="ql9-VD-KKM" id="HCo-hp-e5M"/>
                         <outlet property="datePicker" destination="bXu-Ro-Syc" id="rJs-oi-9EG"/>
-                        <outlet property="kategoryTextField" destination="OUS-Hz-vLn" id="y6O-CX-Yjg"/>
                         <outlet property="titleTextField" destination="NqB-hB-TLA" id="nMb-vq-ZU6"/>
                     </connections>
                 </viewController>

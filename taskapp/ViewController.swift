@@ -121,7 +121,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
      */
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        taskArray = realm.objects(Task.self).filter("kategory == %@", searchBar.text!)
+        taskArray = realm.objects(Task.self).filter("category == %@", searchBar.text!)
                // 再利用可能な cell を得る
              
                // --- ここまで追加 ---
